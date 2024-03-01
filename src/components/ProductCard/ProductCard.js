@@ -6,8 +6,8 @@ const ProductCard = ({product}) => {
   let discountedPrice = parseFloat(product.price*product.discount/100).toPrecision(4);
   return (
     <div className={styles.product_card}>
-      <div className={styles.image}>
-        <img src={product.images[0].img} alt={product.name}/>
+      <div className={styles.image} style={{margin : "auto"}}>
+        <img src={product.images[0].img} alt={product.name} />
       </div>
       <div className={styles.info}>
         <Link src={"/"} className={styles.name}>
