@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#CartPage{
+    /* background-color: antiquewhite; */
+}
+
+#CartHeader{
+    display: flex;
+    align-items: center;
+    /* border: 1px solid crimson; */
+}
+
+/* .CartIitmsPanel div{
+    border: 1px solid crimson; 
+}*/
+
+#CartLabel{
+    background-image: url(../../../public/images/shopping-cart.png);
+    height: 64px;
+    width: 64px;
+    margin: 2vh;
+    /* background-color: rgb(152, 47, 250); */
+}
+
+#HeaderTitle{
+    font-size: 34px;
+    margin-left: 1vw;
+}
+
+#backbtn{
+    background-image: url(../../../public/images/back.png);
+    height: 32px;
+    width: 32px;
+    margin: 2vh;
+    background-color: transparent;
+    border: none;
+    border-radius: 20%;
+    background-repeat: no-repeat;
+    transition-duration: 200ms;
+}
+
+#backbtn:hover{
+    scale: 1.2;
+}

@@ -1,19 +1,16 @@
-import React from 'react'
-import NavBar from './NavBar'
-import "./Dashboard.css"
-import Filter from './Sort'
+import React from "react";
+import NavBar from "./NavBar";
+import "./Dashboard.css";
+import Filter from "./Sort";
 
 function Dashboard() {
   return (
     <>
-    <div>
-        <NavBar />
-    </div>
-    <div>
+      <div>
         <Filter />
-    </div>
+      </div>
     </>
-  )
+  );
 }
 
-export default Dashboard
+export default Dashboard;
