@@ -22,7 +22,11 @@ const productSchema = new mongoose.Schema({
   category: [String],
   price: {
     type: Number,
-    required: [true, "Description cannot be empty."],
+    required: [true, "Price cannot be empty."],
+  },
+  discount:{
+    type:Number,
+    default:0
   },
   averageStar: {
     type: Number,
@@ -42,4 +46,32 @@ const productSchema = new mongoose.Schema({
   },
 });
 
-mongoose.model("Product",productSchema);
+// productSchema.methods.getProducts = function(){
+
+// }
+productSchema.statics.findByQuery = function (query) {
+  return this.find({
+    $or: [
+      { name: { $regex: query, $options: "i" } }, // Search by name (case-insensitive)
+      { brand: { $regex: query, $options: "i" } }, // Search by brand (case-insensitive)
+      { description: { $regex: query, $options: "i" } }, // Search by description (case-insensitive)
+    ],
+  });
+};
+
+productSchema.statics.getProducts = function () {
+  return this.find(
+    {},
+    {
+      _id: 1,
+      name: 1,
+      brand: 1,
+      image: 1,
+      price: 1,
+      averageStar: 1,
+      discount:1
+    }
+  );
+};
+
+mongoose.model("Product", productSchema);
