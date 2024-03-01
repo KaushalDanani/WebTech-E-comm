@@ -3,31 +3,30 @@ import "./Sort.css"
 
 function Sort() {
 
-    const [isVisible, setVisible] = useState(false);
-
-    function toggleSort() {
-        setVisible(!isVisible);
-    }
-
     return (
         <>
             <div className='SortDiv'>
 
-                <div className='SortBtnDiv'>
-                    <div className='SortBtn' onClick={toggleSort}>
-                        <div className='SortText'>
-                            <div className='SortName'>Sort by</div>
-
-                        </div>
-                        <div className='SortLogoDiv'>
-                            <div className='SortLogo'>
-                                <img src="" />
-                            </div>
-                        </div>
-                    </div>
+            <div className='SortCat'>
+            {/* <div className='SortBtnDiv'> */}
+                        <select className='SortTitleDiv'>
+                            <option>&lt;--Sort By--&gt;</option>    
+                            <option>Price</option>    
+                            <option>Quality</option>    
+                            <option>Discount</option>    
+                            <option>Sales</option>    
+                            <option>Size</option>    
+                        </select>
+                        <select className='SortContentsDiv'>
+                            <option>&lt;--Sort order--&gt;</option>
+                            <option>Ascending</option>
+                            <option>Descending</option>
+                        </select>
+                    {/* </div> */}
                 </div>
+                
 
-                <div style={isVisible ? { display: "grid" } : { display: "none" }} className='SortDetails'>
+                {/* <div style={isVisible ? { display: "grid" } : { display: "none" }} className='SortDetails'>
 
                     <div className='SortCat'>
                         <div className='SortTitle'>Price : </div>
@@ -76,7 +75,7 @@ function Sort() {
                         Done
                     </button>
 
-                </div>
+                </div> */}
 
             </div>
         </>

@@ -2,75 +2,14 @@
     /* border-bottom: 2px solid black; */
     padding: 10px;
     box-shadow: 0 0 15px 0px;
-    /* display: flex; */
-}
-
-.SortBtnDiv{
-    position: relative;
-    /* border: 2px solid red; */
     display: flex;
-    width: 100%;
     justify-content: flex-end;
-}
-
-.SortBtn{
-    position: relative;
-    /* right: 0px; */
-    /* border: 2px solid red; */
-    padding: 0px 10px;
-    display: grid;
-    gap: 5px;
-    grid-template-columns: 2fr 1fr;
-    /* margin: auto; */
-    background-color: rgb(149, 149, 149);
-    border-radius: 25px;
-}
-
-.SortBtn:hover{
-    background-color: rgb(179, 179, 179);
-    cursor: pointer;
-}
-
-.SortText{
-    /* border: 2px solid yellow; */
-    /* display: flex; */
-    margin: auto;
-    justify-content: center;
-    padding: auto;
-    color: white;
-}
-
-.SortName{
-    display: flex;
-    justify-content: center;
-    font-size: 2.2vh;
-}
-
-.SortLogoDiv{
-    display: flex;
-    justify-content: center;
-}
-
-.SortLogo{
-    padding: 12px;
-    background: url("/public/images/setting.png") no-repeat;
-    background-position: center;
-    background-size: contain;
-}
-
-.SortDetails{
-    display: grid;
-    grid-template-columns: 3fr 3fr 3fr 3fr 3fr 1fr;
-    padding-top: 20px;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    border-top: 1px solid rgb(177, 177, 177);
 }
 
 .SortCat{
     display: grid;
-    grid-template-columns: 3fr 7fr ;
-    width: 100%;
+    grid-template-columns: 3fr 4fr ;
+    /* width: 100%; */
     gap: 10px;
     /* border: 2px solid red;    */
 }
@@ -85,24 +24,14 @@
 .SortContentsDiv{
     display: flex;
     font-size: 2.3vh;
-    width: 80%;
-}
-.SortContentsDiv{
+    /* width: 80%; */
     padding: 3px;
     border-radius: 10px;
 }
-
-.SortDone{
-    background-color: rgb(42, 91, 183);
-    color: white;
-    border-radius: 20px;
+.SortTitleDiv{
+    border-radius: 10px;
     display: flex;
-    justify-content: center;
-    padding: 8px;
     font-size: 2.3vh;
-}
-
-.SortDone :hover{
-    background-color: rgb(6, 44, 115);
-    cursor: pointer;
+    /* width: 80%; */
+    font-weight: bold;
 }

@@ -5,6 +5,7 @@ import SearchBar from './SearchBar'
 import Account from './Account'
 import Cart from './Cart'
 import Filter from './Sort'
+import { Link } from 'react-router-dom'
 
 function NavBar() {
   return (
@@ -19,9 +20,9 @@ function NavBar() {
         <div className='accDiv'>
             <Account />
         </div>
-        <div className='cartDiv'>
+        <Link to={'/cart'} className='cartLink cartDiv'><div className='cartDiv'>
             <Cart />
-        </div>
+        </div></Link>
     </div>
   )
 }
