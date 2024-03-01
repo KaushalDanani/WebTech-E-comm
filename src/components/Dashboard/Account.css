@@ -1,0 +1,37 @@
+.accMain{
+    /* border: 2px solid red; */
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin: auto;
+}
+
+.accText{
+    /* border: 2px solid yellow; */
+    display: grid;
+    grid-template-columns: 1fr;
+    color: white;
+}
+
+.accName{
+    display: flex;
+    justify-content: center;
+    font-size: 2.4vh;
+}
+.accLogout{
+    display: flex;
+    justify-content: end;
+    font-size: 1.8vh;
+}
+
+.accLogoDiv{
+    display: flex;
+    justify-content: center;
+}
+
+.accLogo{
+    padding: 15px;
+    background: url("/public/images/user.png") no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+

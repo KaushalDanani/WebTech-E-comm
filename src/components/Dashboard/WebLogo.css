@@ -1,0 +1,20 @@
+.webLogo{
+    background-image: url("/public/images/trolley.png");
+    background-size: contain;
+    padding: 3vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* border: 2px solid red; */
+}
+.logoBox{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.logoContent{
+    word-wrap: break-word;
+    color: white;
+    font-weight: 500;
+}

@@ -1,0 +1,27 @@
+.nav{
+    position: relative;
+    display: grid;
+    grid-template-columns: 4fr 24fr 6fr 4fr;
+    height: 20%;
+    border: 2px solid black;
+    background-color: rgb(42, 91, 183);
+}
+
+.srcBarDiv{
+    /* border: 2px solid purple; */
+    display: flex;
+    padding: 10px 5px;
+} 
+
+.webLogoDiv{
+    display: flex;
+}
+
+.accDiv{
+    /* border: 2px solid white; */
+    display: flex;
+}
+
+.cartDiv{
+    display: flex;
+}

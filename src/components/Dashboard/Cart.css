@@ -1,0 +1,41 @@
+.cartMain{
+    /* border: 2px solid red; */
+    border-radius: 50px;
+    padding: 0px 10px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin: auto;
+}
+
+.cartMain:hover{
+    background-color: rgb(94, 135, 211);
+    cursor: pointer;
+}
+
+.cartText{
+    /* border: 2px solid yellow; */
+    /* display: flex; */
+    margin: auto;
+    justify-content: center;
+    padding: auto;
+    color: white;
+}
+
+.cartName{
+    display: flex;
+    justify-content: center;
+    font-size: 2.5vh;
+}
+
+.cartLogoDiv{
+    display: flex;
+    justify-content: center;
+}
+
+.cartLogo{
+    padding: 12px;
+    background: url("/public/images/grocery-store.png") no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
