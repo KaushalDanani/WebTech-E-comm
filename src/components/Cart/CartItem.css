@@ -1,13 +1,38 @@
 .CartCard {
     display: flex;
     /* justify-content: space-between; */
-    margin: 2vw;
+    margin: 1vw 10vw;
     border: 1px solid black;
     border-radius: 2vw;
     box-shadow: 20px;
+    padding: 1vw;
+}
+
+.CartCard:hover{
+    box-shadow: 0px 0px 4px 1px black;
 }
 
 .itemImg{
-    height: 20vh;
-    width: 20vh;
+    height: 30vh;
+    width: 30vh;
+}
+
+.CartItemInfo{
+    margin-left: 3vw;
+}
+
+.CartItemInfo div{
+    margin: 0.5vw;
+}
+
+#CartRem{
+    padding: 0.7vw;
+    border: none;
+    border-radius: 45%;
+    background-color: rgb(2, 8, 132);
+    color: white;
+}
+
+#CartRem:hover{
+    background-color: rgb(39, 48, 221);
 }

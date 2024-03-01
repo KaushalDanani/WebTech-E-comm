@@ -46,3 +46,11 @@
 #backbtn:hover{
     scale: 1.2;
 }
+
+#totalLabel{
+    float: right;
+}
+
+#bill{
+    margin: 2vh 10vw;
+}
