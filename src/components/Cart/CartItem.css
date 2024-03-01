@@ -1,0 +1,13 @@
+.CartCard {
+    display: flex;
+    /* justify-content: space-between; */
+    margin: 2vw;
+    border: 1px solid black;
+    border-radius: 2vw;
+    box-shadow: 20px;
+}
+
+.itemImg{
+    height: 20vh;
+    width: 20vh;
+}
