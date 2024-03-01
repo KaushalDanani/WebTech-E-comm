@@ -1,3 +1,14 @@
 .nav{
     position: relative;
 }
+
+.DashboardMainDiv{
+    display: flex;
+}
+
+.FilterMainDiv{
+    display: flex;
+    width: 15%;
+    /* border: 2px solid red; */
+    
+}

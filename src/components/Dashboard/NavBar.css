@@ -25,3 +25,7 @@
 .cartDiv{
     display: flex;
 }
+
+.cartLink{
+    text-decoration: none;
+}
