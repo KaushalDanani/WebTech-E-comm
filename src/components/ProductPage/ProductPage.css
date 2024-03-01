@@ -1,0 +1,26 @@
+.ProductBox {
+    display: flex;
+    
+}
+
+.ProductImgContainer {
+    display: inline-flex;
+}
+
+.ProductImg {
+    display: inline-flex;
+    width: 500px;
+    height: 500px;
+    background-size: contain;
+}
+
+.ProductDetails {
+    display: inline-flex;
+    margin-left: 6%;
+    margin-top: 2.5%;
+    flex-direction: column
+}
+
+.pname {
+    
+}
