@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 const productSchema = new mongoose.Schema({
-  productName: {
+  name: {
     type: String,
     required: [true, "Product Name cannot be empty."],
   },
-  productBrand: {
+  brand: {
     type: String,
     required: [true, "Product Brand cannot be empty."],
   },
