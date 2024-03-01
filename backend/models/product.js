@@ -32,6 +32,10 @@ const productSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  noOfOrder:{
+    type:Number,
+    default:0
+  },
   remarks: {
     colors: [
       {
