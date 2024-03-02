@@ -4,9 +4,9 @@ import "./Cart.css";
 function Cart() {
     return (
         <div className='cartMain'>
-            <div className='cartBadge'>
+            {/* <div className='cartBadge'>
                 12
-            </div>
+            </div> */}
             <div className='cartLogoDiv'>
                 <div className='cartLogo'>
                     <img src="" />
