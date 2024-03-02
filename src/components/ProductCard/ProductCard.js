@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 const ProductCard = ({product}) => {
   let discountedPrice = parseFloat(product.price - product.price*product.discount/100).toPrecision(4);
   return (
-    <div className={styles.product_card}>
+    <Link to={product._id.$oid} className={styles.product_card}>
       <div className={styles.image}>
         <img src={product.images[0].img} alt={product.name}/>
       </div>
       <div className={styles.info}>
-        <Link src={"/"} className={styles.name}>
+        <div to={"/"} className={styles.name}>
           {product.name}
-        </Link>
+        </div>
         <div className={styles.brand}>
           {product.brand}
         </div>
@@ -30,7 +30,7 @@ const ProductCard = ({product}) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 

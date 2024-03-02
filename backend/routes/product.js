@@ -27,6 +27,19 @@ router.get("/api/products/search", async (req, res) => {
   }
 });
 
+router.get("/api/products/:id", async (req, res) => {
+  const id = req.id;
+  try {
+    console.log("Hi");
+    const products = await Product.findById(id);
+    console.log(products);
+    return res.status(200).json({ success: true, products });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ success: false });
+  }
+});
+
 const filterKeys = [
   "minPrice",
   "maxPrice",

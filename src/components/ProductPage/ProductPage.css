@@ -1,16 +1,19 @@
 .ProductBox {
     display: flex;
-    
+    justify-content: center;
 }
 
 .ProductImgContainer {
-    display: inline-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
 }
 
 .ProductImg {
     display: inline-flex;
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
     background-size: contain;
 }
 
