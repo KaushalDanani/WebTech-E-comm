@@ -4,16 +4,6 @@ import { Link } from 'react-router-dom';
 
 const ProductCard = ({product}) => {
 
-  // const [product,setProduct] = useState({});
-
-  // useEffect( ()=>{
-  //   if(props.product!=null)
-  //   {
-  //     setProduct(props.product);
-  //     console.log(product);
-  //   }
-  // },props.product);
-
   let discountedPrice = parseFloat(product.price - product.price*product.discount/100).toPrecision(4);
   return (
     <div className={styles.product_card}>

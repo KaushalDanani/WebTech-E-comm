@@ -24,17 +24,17 @@ const productSchema = new Schema({
     type: Number,
     required: [true, "Price cannot be empty."],
   },
-  discount:{
-    type:Number,
-    default:0
+  discount: {
+    type: Number,
+    default: 0,
   },
   averageStar: {
     type: Number,
     default: 0,
   },
-  noOfOrder:{
-    type:Number,
-    default:0
+  noOfOrder: {
+    type: Number,
+    default: 0,
   },
   remarks: {
     colors: [
@@ -59,6 +59,12 @@ productSchema.statics.findByQuery = function (query) {
       { name: { $regex: query, $options: "i" } }, // Search by name (case-insensitive)
       { brand: { $regex: query, $options: "i" } }, // Search by brand (case-insensitive)
       { description: { $regex: query, $options: "i" } }, // Search by description (case-insensitive)
+      {
+        category: {
+          $regex: query, // Case-insensitive search for 'electronics' in category
+          $options: "i",
+        },
+      },
     ],
   });
 };
@@ -73,9 +79,13 @@ productSchema.statics.getProducts = function () {
       images: 1,
       price: 1,
       averageStar: 1,
+<<<<<<< HEAD
       discount:1,
       remarks:1,
       category:1
+=======
+      discount: 1,
+>>>>>>> c5128d3d41e179b3e9bf01486accf9e68c198a81
     }
   );
 };

@@ -13,6 +13,7 @@ const cors = require("cors");
 app.use(cors());
 require("./models/product");
 
+app.use(cors());
 app.use(require("./routes/product"));
 
 app.listen(PORT, () => {

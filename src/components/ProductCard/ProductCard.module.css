@@ -3,6 +3,9 @@
     border: 2px solid black;
     padding: 15px 10px;
     border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .info{
@@ -18,6 +21,7 @@
 
 .image img{
     width: 100%;
+    height: 100%;
 }
 
 .name{
