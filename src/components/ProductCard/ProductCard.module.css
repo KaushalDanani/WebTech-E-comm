@@ -1,8 +1,8 @@
 .product_card {
   /* background-color: red; */
-  border: 2px solid black;
+  /* border: 2px solid black; */
   padding: 15px 10px;
-  border-radius: 25px;
+  /* border-radius: 25px; */
   display: flex;
   flex-direction: column;
   gap: 10px;

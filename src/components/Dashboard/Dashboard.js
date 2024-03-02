@@ -41,7 +41,7 @@ function Dashboard() {
       if(data.success){
         console.log("HH");
         setProducts(data.products);
-        // console.log(data.products);
+        console.log(data.products);
       }
     }).catch((err)=>{
       console.log(err);
