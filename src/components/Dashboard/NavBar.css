@@ -1,7 +1,7 @@
 .nav{
     position: relative;
     display: grid;
-    grid-template-columns: 4fr 24fr 6fr 4fr;
+    grid-template-columns: 4fr 24fr 6fr 2fr;
     height: 20%;
     border: 2px solid black;
     background-color: rgb(42, 91, 183);
@@ -24,4 +24,8 @@
 
 .cartDiv{
     display: flex;
+}
+
+.cartLink{
+    text-decoration: none;
 }

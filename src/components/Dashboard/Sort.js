@@ -1,82 +1,40 @@
 import React, { useState } from 'react'
 import "./Sort.css"
 
-function Sort() {
+function Sort(props) {
 
-    const [isVisible, setVisible] = useState(false);
+    const [sortBy,setSortBy] = useState("");
+    const [sortOrder,setSortOrder] = useState("");
 
-    function toggleSort() {
-        setVisible(!isVisible);
+    function sortHandler(by,order) {
+        setSortBy(by);
+        setSortOrder(order);
+
+        props.sortProducts(by,order);
     }
 
     return (
         <>
             <div className='SortDiv'>
 
-                <div className='SortBtnDiv'>
-                    <div className='SortBtn' onClick={toggleSort}>
-                        <div className='SortText'>
-                            <div className='SortName'>Sort by</div>
-
-                        </div>
-                        <div className='SortLogoDiv'>
-                            <div className='SortLogo'>
-                                <img src="" />
-                            </div>
-                        </div>
-                    </div>
+                <div className='SortCat'>
+                    <select id="by" className='SortTitleDiv'
+                    onChange={(event) => sortHandler(event.target.value,sortOrder)}>
+                        <option value={""}>&lt;--Sort By--&gt;</option>
+                        <option>Price</option>
+                        <option>Quality</option>
+                        <option>Discount</option>
+                        <option>Sales</option>
+                        {/* <option>Size</option> */}
+                    </select>
+                    <select className='SortContentsDiv'
+                    onChange={(event) => sortHandler(sortBy,event.target.value)}>
+                        <option value={""}>&lt;--Sort order--&gt;</option>
+                        <option>Ascending</option>
+                        <option>Descending</option>
+                    </select>
                 </div>
 
-                <div style={isVisible ? { display: "grid" } : { display: "none" }} className='SortDetails'>
-
-                    <div className='SortCat'>
-                        <div className='SortTitle'>Price : </div>
-                        <select className='SortContentsDiv'>
-                            <option>&lt;--Not Selected--&gt;</option>
-                            <option>High to Low</option>
-                            <option>Low to High</option>
-                        </select>
-                    </div>
-                    <div className='SortCat'>
-                        <div className='SortTitle'>Quality : </div>
-                        <select className='SortContentsDiv'>
-                            <option>&lt;--Not Selected--&gt;</option>
-                            <option>Best to Worst</option>
-                            <option>Worst to Best</option>
-                        </select>
-                    </div>
-                    <div className='SortCat'>
-                        <div className='SortTitle'>Discount : </div>
-                        <select className='SortContentsDiv'>
-                            <option>&lt;--Not Selected--&gt;</option>
-
-                            <option>More to Less</option>
-                            <option>Less to More</option>
-                        </select>
-                    </div>
-                    <div className='SortCat'>
-                        <div className='SortTitle'>Sales : </div>
-                        <select className='SortContentsDiv'>
-                            <option>&lt;--Not Selected--&gt;</option>
-
-                            <option>More to Less</option>
-                            <option>Less to More</option>
-                        </select>
-                    </div>
-                    <div className='SortCat'>
-                        <div className='SortTitle'>Size : </div>
-                        <select className='SortContentsDiv'>
-                            <option>&lt;--Not Selected--&gt;</option>
-
-                            <option>Small to Large</option>
-                            <option>Large to Small</option>
-                        </select>
-                    </div>
-                    <button className='SortDone'>
-                        Done
-                    </button>
-
-                </div>
 
             </div>
         </>

@@ -33,5 +33,11 @@
     background: url("/public/images/user.png") no-repeat;
     background-position: center;
     background-size: contain;
+    transition: 0.4s all;
+}
+
+.accLogo:hover{
+    scale: 1.12;
+    
 }
 

@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+const { Schema, model } = require("mongoose");
 
-const productSchema = new mongoose.Schema({
+const productSchema = new Schema({
   name: {
     type: String,
     required: [true, "Product Name cannot be empty."],
@@ -79,9 +79,11 @@ productSchema.statics.getProducts = function () {
       images: 1,
       price: 1,
       averageStar: 1,
-      discount: 1,
+      discount:1,
+      remarks:1,
+      category:1
     }
   );
 };
 
-mongoose.model("Product", productSchema);
+model("Product", productSchema);

@@ -3,12 +3,14 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 require("./config/database");
-const PORT = process.env.PORT;
+// const PORT = process.env.PORT;
+const PORT = 4041;
 
 const express = require("express");
 const app = express();
 
 const cors = require("cors");
+app.use(cors());
 require("./models/product");
 
 app.use(cors());

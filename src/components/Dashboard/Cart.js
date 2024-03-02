@@ -4,9 +4,8 @@ import "./Cart.css";
 function Cart() {
     return (
         <div className='cartMain'>
-            <div className='cartText'>
-                <div className='cartName'>View cart</div>
-                
+            <div className='cartBadge'>
+                12
             </div>
             <div className='cartLogoDiv'>
                 <div className='cartLogo'>
