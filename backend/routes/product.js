@@ -18,6 +18,8 @@ router.get("/api/products/search", async (req, res) => {
   const { query } = req.query;
   try {
     const products = await Product.findByQuery(query);
+
+
     return res.status(200).json({ success: true, products });
   } catch (error) {
     console.log(error);

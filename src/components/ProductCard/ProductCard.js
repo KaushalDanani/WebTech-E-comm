@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './ProductCard.module.css'
 import { Link } from 'react-router-dom';
 
 const ProductCard = ({product}) => {
-  let discountedPrice = parseFloat(product.price*product.discount/100).toPrecision(4);
+
+  // const [product,setProduct] = useState({});
+
+  // useEffect( ()=>{
+  //   if(props.product!=null)
+  //   {
+  //     setProduct(props.product);
+  //     console.log(product);
+  //   }
+  // },props.product);
+
+  let discountedPrice = parseFloat(product.price - product.price*product.discount/100).toPrecision(4);
   return (
     <div className={styles.product_card}>
       <div className={styles.image} style={{margin : "auto"}}>
@@ -14,7 +25,7 @@ const ProductCard = ({product}) => {
           {product.name}
         </Link>
         <div className={styles.brand}>
-          {product.brand}
+          product.brand
         </div>
         <div className={styles.averageStar}>Average Rating: {product.averageStar}/5</div>
         <div className={styles.pricing}>

@@ -7,14 +7,19 @@ import Cart from './Cart'
 import Filter from './Sort'
 import { Link } from 'react-router-dom'
 
-function NavBar() {
+function NavBar(props) {
+
+    function setSrcProducts(products){
+        props.setSrcProducts(products);
+    }
+
   return (
     <div className='nav'>
         <div className='weblogoDiv'>
             <WebLogo />
         </div>
         <div className='srcBarDiv'>
-            <SearchBar />
+            <SearchBar setSrcProducts={setSrcProducts}/>
         </div>
         
         <div className='accDiv'>
