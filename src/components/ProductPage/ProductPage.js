@@ -86,7 +86,7 @@ function ProductPage() {
                 <span className='multiCategory'> {product?.category?.map((type) => (<span className='categoryTags'>{type}</span>))} </span>
                 <span>Ratings : <span> <strong> {product?.averageStar} </strong> </span> out of 5 star</span> 
                 <hr className='hrLine'/>
-                <span className='discounttag'> -64% <span className='priceTag'>₹{dPrice}</span> </span>
+                <span className='discounttag'> -{product.discount}% <span className='priceTag'>₹{dPrice}</span> </span>
                 <span className='productMRP'>M.R.P.: <s>₹ {product?.price} </s></span>
                 <span> Inclusive of all taxes | <span><strong> No of Order: {product?.noOfOrder} </strong></span></span>
                 <span className='colorHeading'><strong> Color: </strong></span>
