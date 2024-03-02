@@ -1,5 +1,6 @@
 import React from 'react'
 import CartItem from './CartItem'
+import { useEffect } from 'react';
 
 export default function CartPanel() {
 
@@ -32,18 +33,26 @@ export default function CartPanel() {
         }
     ]
 
+    function removeItem(ItemId){
+        console.log("Trying to delete");
+        console.log(ItemId);
+        for(let i = 0; i < DemoCart.length; i++){
+            if(DemoCart[i]._id === ItemId){
+                DemoCart.splice(i,1);
+                break;
+            }
+        }
+        console.log(DemoCart);
+    }
+
     function findTotal(){
         let tot = 0;
-        for(let x in DemoCart){
-            tot += x.price
-            console.log(x.price)
+        for(let i = 0; i < DemoCart.length; i++){
+            tot += DemoCart[i].price;
         }
         return tot;
     }
 
-    const totalBill = findTotal();
-    console.log("RETURNED")
-    console.log(totalBill);
     function cartItemsGenerator(props) {
         return (
             <CartItem
@@ -54,14 +63,17 @@ export default function CartPanel() {
                 images={props.images}
                 description={props.description}
                 remarks={props.remarks}
+                functionality={removeItem}
                 _id={props._id}
             />
         )
     }
     return (
         <div className='CartIitmsPanel'>
+            {/* {useEffect(()=>{
+            },[DemoCart])} */}
             {DemoCart.map(cartItemsGenerator)}
-            <div id='bill'>Your Total bill is : <span id='totalLabel'>{totalBill}</span></div>
+            <div id='bill'>Your Total bill is : <span id='totalLabel'>{`${findTotal()}/-`}</span></div>
         </div>
     )
 }
