@@ -11,6 +11,7 @@ const app = express();
 const cors = require("cors");
 require("./models/product");
 
+app.use(cors());
 app.use(require("./routes/product"));
 
 app.listen(PORT, () => {

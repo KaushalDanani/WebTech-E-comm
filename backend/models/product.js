@@ -11,7 +11,7 @@ const productSchema = new mongoose.Schema({
   },
   images: [
     {
-      img: Buffer,
+      img: String,
       contentType: String,
     },
   ],
@@ -70,7 +70,7 @@ productSchema.statics.getProducts = function () {
       _id: 1,
       name: 1,
       brand: 1,
-      image: 1,
+      images: 1,
       price: 1,
       averageStar: 1,
       discount:1
