@@ -79,13 +79,9 @@ productSchema.statics.getProducts = function () {
       images: 1,
       price: 1,
       averageStar: 1,
-<<<<<<< HEAD
       discount:1,
       remarks:1,
       category:1
-=======
-      discount: 1,
->>>>>>> c5128d3d41e179b3e9bf01486accf9e68c198a81
     }
   );
 };
