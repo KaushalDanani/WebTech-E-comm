@@ -19,12 +19,20 @@ router.get("/api/products/search", async (req, res) => {
   try {
     console.log("Hi");
     const products = await Product.findByQuery(query);
-<<<<<<< HEAD
-
-
-=======
     console.log(products);
->>>>>>> c5128d3d41e179b3e9bf01486accf9e68c198a81
+    return res.status(200).json({ success: true, products });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ success: false });
+  }
+});
+
+router.get("/api/products/:id", async (req, res) => {
+  const id = req.id;
+  try {
+    console.log("Hi");
+    const products = await Product.findById(id);
+    console.log(products);
     return res.status(200).json({ success: true, products });
   } catch (error) {
     console.log(error);
