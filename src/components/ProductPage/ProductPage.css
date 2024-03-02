@@ -18,9 +18,71 @@
     display: inline-flex;
     margin-left: 6%;
     margin-top: 2.5%;
+    width: 25%;
+    overflow: hidden;
     flex-direction: column
 }
 
 .pname {
-    
+    font-size: 2rem;
+    margin-bottom: 1.7%;
+    word-wrap: break-word;
+}
+
+.hrLine {
+    width: 100%;
+    margin-top: 3.5%;
+}
+
+.discounttag {
+    font-size: 2rem;
+    margin-top: 1.5%;
+    color: rgba(255, 0, 0, 0.715);
+}
+
+.priceTag {
+    font-size: 1.6rem;
+    color: black;
+}
+
+.productMRP {
+    color: gray;
+}
+
+.addToCartBtn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.7vh 4vw;
+    margin-top: 3%;
+    border: none;
+    background-color: rgb(255, 242, 0);   
+    border-radius: 1vw;
+    &:hover {
+        background-color: rgb(224, 224, 0);
+    }
+}
+
+.buyNowBtn {
+    width: 100%;
+    padding: 1.7vh 4.55vw;
+    margin-top: 3%;
+    border: none;
+    background-color: orange;   
+    border-radius: 1vw;
+    &:hover {
+        background-color: rgb(225, 146, 0);
+    }
+}
+
+.dscriptionHeader {
+    font-size: 1.2rem;
+    margin-top: 10%;
+}
+
+.productDiscription {
+    margin-top: 3.5%;
+    word-wrap: break-word;
+    text-align: justify;
 }
