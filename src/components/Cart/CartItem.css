@@ -4,8 +4,8 @@
     margin: 1vw 10vw;
     border: 1px solid black;
     border-radius: 2vw;
-    box-shadow: 20px;
     padding: 1vw;
+    position: relative;
 }
 
 .CartCard:hover{
@@ -26,13 +26,22 @@
 }
 
 #CartRem{
-    padding: 0.7vw;
+    position: absolute;
+    /* top: 1vw; */
+    right: 1vw;
     border: none;
-    border-radius: 45%;
-    background-color: rgb(2, 8, 132);
-    color: white;
+    background-image: url(../../../public/images/remove.png);
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+    background-color: transparent;
 }
 
-#CartRem:hover{
-    background-color: rgb(39, 48, 221);
+#prc{
+    text-decoration: line-through;
+    font-size: 19px;
+}
+
+.pricing{
+    font-size: 23px;
 }

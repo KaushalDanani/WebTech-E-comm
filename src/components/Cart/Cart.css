@@ -54,4 +54,49 @@
 #bill{
     margin: 2vh 10vw;
     font-size: 25px;
+    /* border: 1px solid black; */
+    padding: 3%;
+    padding-top: 5px;
+    /* padding-bottom: 5px; */
+    border-radius: 2vw;
+}
+
+#bill div{
+    margin: 5px;
+}
+
+#discountDetails{
+    font-size: 20px;
+    border-bottom: 1px solid lightgray;
+}
+
+#proceedButton{
+    
+    right: 0.1vw;
+}
+
+#cancelButton{
+    
+    left: 0.1vw;
+}
+
+#buttonPosition{
+    margin-bottom: 1.3vw;
+    margin-top: 1vw;
+    position: relative;
+    /* bottom: 0.1vw; */
+}
+
+#buttonPosition button{
+    padding: 1.2vh;
+    background-color: rgb(103, 1, 255);
+    border: none;
+    border-radius: 20vw;
+    color: white;
+    font-size: 1.2vw;
+    position: absolute;
+}
+
+#buttonPosition button:hover{
+   background-color: blueviolet;
 }

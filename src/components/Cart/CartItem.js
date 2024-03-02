@@ -11,19 +11,18 @@ export default function CartItem(props) {
         }
     }
 
-
     return (
         <div className='CartCard'>
+            <input type='button' id='CartRem' onClick={()=>{props.functionality(props._id)}}></input>
             <div>
-            <img src='https://media.istockphoto.com/id/1219165217/vector/baseball-cap-isolated-on-white.jpg?s=612x612&w=0&k=20&c=0nvzCHmg2Hty6ANg-klFEmL4vAK_VhxICEvVdtisLhY=' alt="WHYYYYY" className='itemImg'/>
+            <img src={props.images[0].img} alt="WHYYYYY" className='itemImg'/>
             </div>
             <div className='CartItemInfo' id={props._id}>
                 <div><h1>{props.name}</h1></div>
                 <div><h3>{props.brand}</h3></div>
-                <div><h2>Price : {props.price}</h2></div>
+                <div className='pricing'><b>Amount : {props.amount}/-</b> <span id='prc'>{props.price}</span> ({props.discount}% off)</div>
                 <div>Rating : {props.averageStar}/5</div>
                 <div>{props.description}</div>
-                <button id='CartRem' onClick={()=>{props.functionality(props._id)}}>Remove</button>
             </div>
         </div>
     )
