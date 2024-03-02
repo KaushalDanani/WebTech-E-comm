@@ -3,51 +3,59 @@ import "./Dashboard.css";
 import Filter from "./Filter";
 import ProductCard from "../ProductCard/ProductCard";
 import Sort from "./Sort";
-import pData from "../../static/productData"
+import pdata from "../../static/productData";
 
 
 function Dashboard(props) {
   
-  const [productData, setProductData] = useState([]);
+  const [productData, setProductData] = useState(pdata);
   const [filteredProductData, setFilteredProductData] = useState([]);
   // const [sortedData, setSortedData] = useState(pData);
   const [by,setBy] = useState("");
   const [order,setOrder] = useState("");
   // console.log(productData);
 
+  useEffect( ()=> {
+    if(props.products!==undefined)
+    {
+      setProductData(props.products);
+      setFilteredProductData(props.products);
+    }
+  },[props.products])
+
   // const [uniqueBrands,setUniqueBrands] = useState([]);
   // const [uniqueCategories,setUniqueCategories] = useState([]);
   // const [uniqueColors,setUniqueColors] = useState([]);
   // const [uniqueSizes,setUniqueSizes] = useState([]);
 
-  useEffect( ()=> {
-    fetch(`http://localhost:4041/api/products/dashboard/`,{
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      mode: 'cors', 
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        // setProductData(data.products);
-        // setFilteredProductData(data.products);
+  // useEffect( ()=> {
+  //   fetch(`http://localhost:4041/api/products/dashboard/`,{
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     mode: 'cors', 
+  //   })
+  //     .then(response => {
+  //       if (!response.ok) {
+  //         throw new Error('Network response was not ok');
+  //       }
+  //       return response.json();
+  //     })
+  //     .then(data => {
+  //       // setProductData(data.products);
+  //       // setFilteredProductData(data.products);
         
-        localStorage.setItem("products",JSON.stringify(data.products));
-        console.log(JSON.stringify(data.products));
-        setProductData(data.products);
-        setFilteredProductData(data.products);
-        console.log("--------------------",filteredProductData);
-      })
-      .catch(error => {
-        console.error('Error fetching products:', error);
-      });
-  },[])
+  //       localStorage.setItem("products",JSON.stringify(data.products));
+  //       console.log(JSON.stringify(data.products));
+  //       setProductData(data.products);
+  //       setFilteredProductData(data.products);
+  //       console.log("--------------------",filteredProductData);
+  //     })
+  //     .catch(error => {
+  //       console.error('Error fetching products:', error);
+  //     });
+  // },[])
 
   // useEffect( ()=> {
   //   if(props.products!==undefined)
@@ -104,74 +112,89 @@ function Dashboard(props) {
 
   const { uniqueBrands, uniqueCategories, uniqueColors, uniqueSizes } = extractUniqueValues(productData);
 
-  function filterDiscount(disc) {
-    console.log(disc);
-    if(disc.includes("Below 20%"))
-    {
-
-    }
-  }
-  function filterPrice(disc) {
-    console.log(disc);
-  }
-  function filterQuality(disc) {
-    console.log(disc);
-  }
-
-  function filterBrand(disc) {
-    if (disc.length === 0) {
-      setFilteredProductData(productData);
-      return;
-    }
-    // let productsAll = JSON.parse(localStorage.getItem("products")); 
-    const newData = productData.filter(product => disc.includes(product.brand));
-    setFilteredProductData(newData);
-
-  }
-
-  function filterCategory(disc) {
-    if (disc.length === 0) {
-      setFilteredProductData(productData);
-      return;
-    }
-
-    const newData = productData.filter(product => product.category.some(cat => disc.includes(cat)));
-    setFilteredProductData(filteredProductData => {
-      
-      const combinedData = [...filteredProductData, newData];
+  function filterProducts(filters) {
+    // Initial list of products to start filtering
+    let filteredProducts = productData;
   
-      const uniqueData = Array.from(new Set(combinedData));
-      setFilteredProductData(uniqueData);
-    });
-
-
-  }
-
-  function filterColor(disc) {
-    if (disc.length === 0) {
-      setFilteredProductData(productData);
-      return;
+    // Apply filter for discount range
+    if (filters.discount.length > 0) {
+      filteredProducts = filteredProducts.filter(product => {
+        return filters.discount.some(range => {
+          switch (range) {
+            case "Below 20%":
+              return product.discount < 20;
+            case "20%-50%":
+              return product.discount >= 20 && product.discount < 50;
+            case "50%-75%":
+              return product.discount >= 50 && product.discount < 75;
+            case "Above 75%":
+              return product.discount >= 75;
+            default:
+              return true;
+          }
+        });
+      });
     }
-
-    const newData = productData.filter(product => product.remarks.colors.some(color => disc.includes(color.color)));
-    setFilteredProductData(newData);
-
-
-  }
-
-  function filterSize(disc) {
-    if (disc.length === 0) {
-      setFilteredProductData(productData);
-      return;
+  
+    // Apply filter for price range
+    if (filters.price.length > 0) {
+      filteredProducts = filteredProducts.filter(product => {
+        return filters.price.some(range => {
+          switch (range) {
+            case "Below 100":
+              return product.price < 100;
+            case "100-300":
+              return product.price >= 100 && product.price < 300;
+            case "300-600":
+              return product.price >= 300 && product.price < 600;
+            case "Above 600":
+              return product.price >= 600;
+            default:
+              return true;
+          }
+        });
+      });
     }
-
-    const newData = productData.filter(product => {
-      return product.remarks.sizes.some(size => disc.includes(size.size));
-
-    });
-    setFilteredProductData(newData);
-
+  
+    // Apply filter for quality (averageStar)
+    if (filters.quality.length > 0) {
+      filteredProducts = filteredProducts.filter(product => {
+        return filters.quality.some(quality => product.averageStar <= quality);
+      });
+    }
+  
+    // Apply filter for brand
+    if (filters.brand.length > 0) {
+      filteredProducts = filteredProducts.filter(product => {
+        return filters.brand.includes(product.brand);
+      });
+    }
+  
+    // Apply filter for category
+    if (filters.category.length > 0) {
+      filteredProducts = filteredProducts.filter(product => {
+        return product.category.some(cat => filters.category.includes(cat));
+      });
+    }
+  
+    // Apply filter for color
+    if (filters.color.length > 0) {
+      filteredProducts = filteredProducts.filter(product => {
+        return product.remarks.colors.some(color => filters.color.includes(color.color));
+      });
+    }
+  
+    // Apply filter for size
+    if (filters.size.length > 0) {
+      filteredProducts = filteredProducts.filter(product => {
+        return product.remarks.sizes.some(size => filters.size.includes(size.size));
+      });
+    }
+  
+    // Set the filtered products
+    setFilteredProductData(filteredProducts);
   }
+  
 
   useEffect( () => {
 
@@ -257,13 +280,7 @@ function Dashboard(props) {
       <div className="DashboardMainDiv">
         <div className="FilterMainDiv">
           <Filter brands={uniqueBrands} categories={uniqueCategories} colors={uniqueColors} sizes={uniqueSizes}
-            filterDiscount={filterDiscount}
-            filterBrand={filterBrand}
-            filterCategory={filterCategory}
-            filterColor={filterColor}
-            filterPrice={filterPrice}
-            filterQuality={filterQuality}
-            filterSize={filterSize}
+            filterProducts={filterProducts}
           />
         </div>
         <div className="ContentMainDiv">

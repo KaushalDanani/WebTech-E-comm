@@ -5,11 +5,12 @@ import NavBar from "./components/Dashboard/NavBar";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Cart from "./components/Cart/Cart";
 import ProductPage from "./components/ProductPage/ProductPage";
+import productsData from './static/productData'
 import { useEffect, useState } from "react";
 
 function App() {
 
-  const [products,setProducts] = useState([]);
+  const [products,setProducts] = useState(productsData);
 
   // useEffect( ()=> {
   //   fetch(`http://localhost:4041/api/products/dashboard/`,{

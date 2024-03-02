@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import "./SearchBar.css"
+import pdata from '../../static/productData';
 
 function SearchBar(props) {
 
@@ -12,31 +13,20 @@ function SearchBar(props) {
   }
 
   function searchProduct() {
-    fetch(`http://localhost:4041/api/products/search/?query=${search}`,{
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        // Include other headers if needed
-      },
-      mode: 'cors', // Ensure the request is a CORS request
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        // Access the products from the response data
-        // console.log(data.products); // This will log the array of products to the console
-        setProducts(data.products);
-
-        props.setSrcProducts(data.products);
-      })
-      .catch(error => {
-        console.error('Error fetching products:', error);
-      });
-
+    // Convert the keyword to lowercase for case-insensitive matching
+    const lowerKeyword = search.toLowerCase();
+  
+    // Filter the products array based on whether the keyword is present in the name, brand, category, or description
+    const filteredProducts = pdata.filter(product =>
+      product.name.toLowerCase().includes(lowerKeyword) ||
+      product.brand.toLowerCase().includes(lowerKeyword) ||
+      product.category.some(category => category.toLowerCase().includes(lowerKeyword)) ||
+      product.description.toLowerCase().includes(lowerKeyword)
+    );
+  
+    setProducts(filteredProducts);
+    props.setSrcProducts(filteredProducts);
+    console.log("SFSF",filteredProducts);
   }
 
 
