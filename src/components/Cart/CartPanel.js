@@ -7,8 +7,16 @@ import productArr from './products.json';
 export default function CartPanel() {
 
     console.log(productArr);
-    const cartArray = JSON.parse(localStorage.getItem('cart'));
-    const [products, setProducts] = useState(productArr);
+    let cartArray = JSON.parse(localStorage.getItem('cart'));
+    if (!cartArray) {
+        localStorage.setItem("cart", JSON.stringify([]));
+        cartArray = [];
+    }
+    // const [cartProducts,setCart] = useState([]);
+    // if(!cartArray){
+    //     setCart(cartArray);
+    // }
+    const [products, setProducts] = useState(cartArray);
 
     function removeItem(ItemId) {
         console.log("Trying to delete");
@@ -20,6 +28,7 @@ export default function CartPanel() {
             }
         }
         setProducts([...products]);
+        localStorage.setItem("cart", JSON.stringify(products));
         console.log(products);
     }
 
@@ -59,6 +68,7 @@ export default function CartPanel() {
     return (
         <div className='CartIitmsPanel'>
             {
+
                 products.map((product) => {
                     return (
                         <CartItem
@@ -74,9 +84,10 @@ export default function CartPanel() {
                             functionality={removeItem}
                             _id={product._id}
                         />
-                    );
+                    )
                 })
             }
+
             <div id='bill'>
                 <div>Total : <span id='totalLabel'>{`${findTotal()}/-`}</span></div>
                 <div id='discountDetails'>You Saved : <span id="totalLabel">{`${findSavings()}/-`}</span></div>

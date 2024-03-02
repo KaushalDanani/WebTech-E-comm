@@ -108,6 +108,7 @@
     &:hover {
         background-color: rgb(224, 224, 0);
     }
+    cursor: pointer;
 }
 
 .buyNowBtn {

@@ -8,24 +8,26 @@
     position: relative;
 }
 
-.CartCard:hover{
+.CartCard:hover {
     box-shadow: 0px 0px 4px 1px black;
 }
 
-.itemImg{
+.itemImg {
     height: 30vh;
     width: 30vh;
 }
 
-.CartItemInfo{
+.CartItemInfo {
     margin-left: 3vw;
+    text-decoration: none;
+    color: black;
 }
 
-.CartItemInfo div{
+.CartItemInfo div {
     margin: 0.5vw;
 }
 
-#CartRem{
+#CartRem {
     position: absolute;
     /* top: 1vw; */
     right: 1vw;
@@ -37,11 +39,11 @@
     background-color: transparent;
 }
 
-#prc{
+#prc {
     text-decoration: line-through;
     font-size: 19px;
 }
 
-.pricing{
+.pricing {
     font-size: 23px;
 }

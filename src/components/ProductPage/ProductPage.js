@@ -67,7 +67,7 @@ function ProductPage() {
         color:selectedColor
       },
     });
-
+    window.alert("Product added to cart successfully...!");
     localStorage.setItem("cart",JSON.stringify(cart));
   }
 
