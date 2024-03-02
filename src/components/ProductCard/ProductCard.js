@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './ProductCard.module.css'
 import { Link } from 'react-router-dom';
 
 const ProductCard = ({product}) => {
+
   let discountedPrice = parseFloat(product.price - product.price*product.discount/100).toPrecision(4);
   return (
     <Link to={product._id.$oid} className={styles.product_card}>

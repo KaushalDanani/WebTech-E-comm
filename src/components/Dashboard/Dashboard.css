@@ -1,3 +1,31 @@
 .nav{
     position: relative;
 }
+
+.DashboardMainDiv{
+    display: flex;
+}
+
+.FilterMainDiv{
+    display: flex;
+    width: 15%;
+    /* border: 2px solid red; */
+    
+}
+.ContentMainDiv{
+    width: 85%;
+}
+
+.ContentMainTitle{
+    font-size: 6vh;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+.ProductGrid{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    padding: 20px;
+    gap: 20px;
+}

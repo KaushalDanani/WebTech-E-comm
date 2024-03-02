@@ -11,9 +11,6 @@ export default function CartItem(props) {
         }
     }
 
-    // useEffect(()=>{
-    //     addRemarks();
-    // },props.remarks);
 
     return (
         <div className='CartCard'>
@@ -26,7 +23,7 @@ export default function CartItem(props) {
                 <div><h2>Price : {props.price}</h2></div>
                 <div>Rating : {props.averageStar}/5</div>
                 <div>{props.description}</div>
-                <button id='CartRem'>Remove</button>
+                <button id='CartRem' onClick={()=>{props.functionality(props._id)}}>Remove</button>
             </div>
         </div>
     )

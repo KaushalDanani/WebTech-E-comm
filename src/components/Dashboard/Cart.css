@@ -1,14 +1,18 @@
 .cartMain{
     /* border: 2px solid red; */
+    position: relative;
     border-radius: 50px;
     padding: 0px 10px;
     display: grid;
     grid-template-columns: 2fr 1fr;
     margin: auto;
+    display: flex;
+    justify-content: center;
+    transition: 0.3s all;
 }
 
 .cartMain:hover{
-    background-color: rgb(94, 135, 211);
+    scale: 1.1;
     cursor: pointer;
 }
 
@@ -30,12 +34,26 @@
 .cartLogoDiv{
     display: flex;
     justify-content: center;
+    /* border: 2px solid black; */
 }
 
 .cartLogo{
-    padding: 12px;
+    padding: 16px;
     background: url("/public/images/grocery-store.png") no-repeat;
     background-position: center;
     background-size: contain;
+}
+
+.cartBadge{
+    position: absolute;
+    background-color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
+    padding: 4px 5px;
+    border-radius: 20px;
+    font-size: 1.3vh;
+    font-weight: bolder;
+    right: 0px;
+    top: 5px;
+    border: 1px solid rgb(255, 255, 255);
 }
 
