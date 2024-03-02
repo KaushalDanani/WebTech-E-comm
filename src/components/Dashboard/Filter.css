@@ -1,0 +1,34 @@
+.Filter{
+    /* border: 2px solid yellow; */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-right: 2px solid rgb(196, 196, 196);
+}
+.FilterTitle{
+    font-size: 3vh;
+    font-weight: bold;
+    padding: 10px;
+    display: flex;
+    width: 100%;
+    /* border: 2px solid black; */
+    justify-content: center;
+    border-bottom: 2px solid rgb(196, 196, 196);
+}
+
+.FilterCat{
+    padding: 8px;
+}
+
+.FilterCatTitle{
+    font-weight: bold;
+    font-size: 2.3vh;
+}
+
+.FilterOptionsDiv{
+    padding-left: 10px;
+}
+
+.FilterOption label{
+    padding-left: 5px;
+}
