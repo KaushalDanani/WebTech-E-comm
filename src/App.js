@@ -11,31 +11,32 @@ function App() {
 
   const [products,setProducts] = useState([]);
 
-  useEffect( ()=> {
-    fetch(`http://localhost:4041/api/products/dashboard/`,{
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      mode: 'cors', 
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        setProducts(data.products);
-        console.log(data.products);
-      })
-      .catch(error => {
-        console.error('Error fetching products:', error);
-      });
-  },[])
+  // useEffect( ()=> {
+  //   fetch(`http://localhost:4041/api/products/dashboard/`,{
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     mode: 'cors', 
+  //   })
+  //     .then(response => {
+  //       if (!response.ok) {
+  //         throw new Error('Network response was not ok');
+  //       }
+  //       return response.json();
+  //     })
+  //     .then(data => {
+  //       setProducts(data.products);
+  //       console.log(data.products);
+  //     })
+  //     .catch(error => {
+  //       console.error('Error fetching products:', error);
+  //     });
+  // },[])
 
   function setSrcProducts(srcProducts){
     setProducts(srcProducts);
+    console.log("src",srcProducts);
   }
 
   return (

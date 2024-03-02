@@ -25,7 +25,7 @@ const ProductCard = ({product}) => {
           {product.name}
         </Link>
         <div className={styles.brand}>
-          product.brand
+          {product.brand}
         </div>
         <div className={styles.averageStar}>Average Rating: {product.averageStar}/5</div>
         <div className={styles.pricing}>

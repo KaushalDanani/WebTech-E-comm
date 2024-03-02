@@ -8,44 +8,76 @@ import pData from "../../static/productData"
 
 function Dashboard(props) {
   
-  const [productData, setProductData] = useState(pData);
-  const [filteredProductData, setFilteredProductData] = useState(pData);
+  const [productData, setProductData] = useState([]);
+  const [filteredProductData, setFilteredProductData] = useState([]);
   // const [sortedData, setSortedData] = useState(pData);
   const [by,setBy] = useState("");
   const [order,setOrder] = useState("");
   // console.log(productData);
 
-  const [uniqueBrands,setUniqueBrands] = useState([]);
-  const [uniqueCategories,setUniqueCategories] = useState([]);
-  const [uniqueColors,setUniqueColors] = useState([]);
-  const [uniqueSizes,setUniqueSizes] = useState([]);
+  // const [uniqueBrands,setUniqueBrands] = useState([]);
+  // const [uniqueCategories,setUniqueCategories] = useState([]);
+  // const [uniqueColors,setUniqueColors] = useState([]);
+  // const [uniqueSizes,setUniqueSizes] = useState([]);
 
   useEffect( ()=> {
-    if(props.products!==undefined)
-    {
-      // setProductData(props.products);
-    }
-  },[props.products]);
+    fetch(`http://localhost:4041/api/products/dashboard/`,{
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      mode: 'cors', 
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        // setProductData(data.products);
+        // setFilteredProductData(data.products);
+        
+        localStorage.setItem("products",JSON.stringify(data.products));
+        console.log(JSON.stringify(data.products));
+        setProductData(data.products);
+        setFilteredProductData(data.products);
+        console.log("--------------------",filteredProductData);
+      })
+      .catch(error => {
+        console.error('Error fetching products:', error);
+      });
+  },[])
 
-  useEffect( ()=> {
-    if(props.products!==undefined)
-    {
-      // setFilteredProductData(props.products);
-    }
-  },[props.products]);
+  // useEffect( ()=> {
+  //   if(props.products!==undefined)
+  //   {
+  //     setProductData(props.products);
+  //     console.log("DDD",props.products);
+  //   }
+  // },[props.products]);
 
-  useEffect(()=>{
-    if(props.products!==undefined)
-    {
-      const {uniqueBrands, uniqueCategories, uniqueColors, uniqueSizes} = extractUniqueValues(productData);
-      setUniqueBrands(uniqueBrands);
-      setUniqueCategories(uniqueCategories);
-      setUniqueColors(uniqueColors);
-      setUniqueSizes(uniqueSizes);
-    }
-  },[props.products]);
+  // useEffect( ()=> {
+  //   if(props.products!==undefined)
+  //   {
+  //     setFilteredProductData(props.products);
+  //   }
+  // },[props.products]);
+
+  // useEffect(()=>{
+  //   if(props.products!==undefined)
+  //   {
+  //     const {uniqueBrands, uniqueCategories, uniqueColors, uniqueSizes} = extractUniqueValues(productData);
+  //     setUniqueBrands(uniqueBrands);
+  //     setUniqueCategories(uniqueCategories);
+  //     setUniqueColors(uniqueColors);
+  //     setUniqueSizes(uniqueSizes);
+  //   }
+  // },[props.products]);
 
   function extractUniqueValues(data) {
+    // console.log("saiodhoaikdnjsdnf",localStorage.getItem("products"));
+    // let data = ;
     const uniqueBrands = [...new Set(data.map(item => item.brand))];
     const uniqueCategories = [...new Set(data.flatMap(item => item.category))];
 
@@ -70,10 +102,14 @@ function Dashboard(props) {
     return { uniqueBrands, uniqueCategories, uniqueColors, uniqueSizes };
   }
 
-  // const { uniqueBrands, uniqueCategories, uniqueColors, uniqueSizes } = extractUniqueValues(productData);
+  const { uniqueBrands, uniqueCategories, uniqueColors, uniqueSizes } = extractUniqueValues(productData);
 
   function filterDiscount(disc) {
     console.log(disc);
+    if(disc.includes("Below 20%"))
+    {
+
+    }
   }
   function filterPrice(disc) {
     console.log(disc);
@@ -87,7 +123,7 @@ function Dashboard(props) {
       setFilteredProductData(productData);
       return;
     }
-
+    // let productsAll = JSON.parse(localStorage.getItem("products")); 
     const newData = productData.filter(product => disc.includes(product.brand));
     setFilteredProductData(newData);
 
@@ -100,7 +136,13 @@ function Dashboard(props) {
     }
 
     const newData = productData.filter(product => product.category.some(cat => disc.includes(cat)));
-    setFilteredProductData(newData);
+    setFilteredProductData(filteredProductData => {
+      
+      const combinedData = [...filteredProductData, newData];
+  
+      const uniqueData = Array.from(new Set(combinedData));
+      setFilteredProductData(uniqueData);
+    });
 
 
   }
