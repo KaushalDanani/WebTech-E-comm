@@ -3,7 +3,7 @@ import "./Dashboard.css";
 import Filter from "./Filter";
 import ProductCard from "../ProductCard/ProductCard";
 import Sort from "./Sort";
-import pdata from "../../static/productData";
+import pdata from "../../data/webtech-ecomm.products.json";
 
 
 
